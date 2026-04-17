@@ -8,14 +8,15 @@ const DB_PATH = path.join(process.cwd(), 'data', 'events.db');
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const db = new Database(DB_PATH, { readonly: true });
 
     const digest = db.prepare(`
       SELECT * FROM digests WHERE slug = ? AND is_active = 1
-    `).get(params.slug);
+    `).get(slug);
 
     if (!digest) {
       db.close();

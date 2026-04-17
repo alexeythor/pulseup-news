@@ -735,6 +735,10 @@ function HomeInner() {
           ) : (
             <>
               <div className="results-sticky-top">
+                <div className="all-events-heading">
+                  <span>All Events</span>
+                  <span className="all-events-count">{displayTotal}</span>
+                </div>
                 <DateBar
                   selectedDate={filters.dateFrom === filters.dateTo ? filters.dateFrom : undefined}
                   onSelect={handleDateBarSelect}
