@@ -1,5 +1,6 @@
 node_modules/
 .next/
 .env.local
-data/events.db
-*.db
+analytics.db
+analytics.db-shm
+analytics.db-wal
