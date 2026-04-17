@@ -13,6 +13,7 @@ import WhoFilter from '@/components/FilterDialogs/WhoFilter';
 import WhereFilter from '@/components/FilterDialogs/WhereFilter';
 import EventCardV2 from '@/components/EventCardV2';
 import DateBar from '@/components/DateBar';
+import DigestShelf from '@/components/DigestShelf';
 import FavoritesPanel from '@/components/FavoritesPanel';
 import { FavoritesProvider, useFavorites } from '@/lib/FavoritesContext';
 import type { MapBounds } from '@/components/discovery/discovery-state';
@@ -710,6 +711,9 @@ function HomeInner() {
 
         {/* CENTER: results grid */}
         <div className="results-column" ref={resultsRef}>
+          {/* Digest shelf — always visible above event grid */}
+          <DigestShelf onEventClick={handleCardClick} />
+
           {loading ? (
             <div className="results-loading">
               {Array.from({ length: 9 }).map((_, i) => (
