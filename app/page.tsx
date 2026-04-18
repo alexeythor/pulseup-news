@@ -351,7 +351,7 @@ function HomeInner() {
   }, []);
 
   // Discovery handlers
-  const handleCardClick = useCallback((event: Event) => {
+  const handleCardClick = useCallback((event: unknown) => {
     track('card_clicked', { event_id: event.id, event_title: event.title, list_type: 'feed' });
     setSelectedItemId(event.id);
     setSelectedEvent(event);
