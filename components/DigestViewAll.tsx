@@ -3,6 +3,7 @@
 import DigestCard from './DigestCard';
 
 interface Digest {
+  id: number;
   slug: string;
   title: string;
   subtitle: string;
